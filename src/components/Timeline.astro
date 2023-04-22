@@ -1,0 +1,50 @@
+---
+export interface Props {
+  elements: Array<{
+    date: string;
+    title: string;
+    description: string;
+  }>;
+}
+
+const { elements } = Astro.props;
+---
+
+<div class="relative wrap overflow-hidden p-10 h-full">
+  <div
+    class="border-2-2 border-yellow-555 absolute h-full border"
+    style="right: 50%; border: 2px solid #FFC100; border-radius: 1%;"
+  >
+  </div>
+  <div
+    class="border-2-2 border-yellow-555 absolute h-full border"
+    style="left: 50%; border: 2px solid #FFC100; border-radius: 1%;"
+  >
+  </div>
+  {
+    elements.map((element, index) => {
+      const isOdd = index % 2 === 0;
+      const position = isOdd ? "left" : "right";
+      return (
+        <div
+          class={`mb-8 flex justify-between ${
+            position === "left" ? "flex-row-reverse" : "flex-row"
+          } items-center w-full ${position}-timeline`}
+        >
+          <div class="order-1 w-5/12" />
+          <div
+            class={`order-1 w-5/12 px-1 py-4 text-${
+              position === "left" ? "right" : "left"
+            }`}
+          >
+            <p class="mb-3 text-base text-yellow-300">{element.date}</p>
+            <h4 class="mb-3 font-bold text-lg md:text-2xl">{element.title}</h4>
+            <p class="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
+              {element.description}
+            </p>
+          </div>
+        </div>
+      );
+    })
+  }
+</div>

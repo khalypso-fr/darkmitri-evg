@@ -1,81 +1,90 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Hero from "../components/Hero.astro";
+import Timeline from "../components/Timeline.astro";
+import Layout from "../layouts/Layout.astro";
+
+const elements = [
+  {
+    date: "Vendredi 12 mai - 19h",
+    title: "Kidnapping",
+    description:
+      "On embarque le Darkmitri à Ermont. On récupère le colis nommé Jeannot et on part pour BXL ZOO",
+  },
+  {
+    date: "22h30",
+    title: "Arrivée à BXL",
+    description: "On mange, on boit, on dort. L'ordre est à définir.",
+  },
+  {
+    date: "Samedi 13 mai - 9h30",
+    title: "Réveil",
+    description:
+      "On a des trucs à faire donc il s'agirait de pas faire de grasses mat'",
+  },
+  {
+    date: "11h",
+    title: "Escape game",
+    description: "",
+  },
+  {
+    date: "12h30",
+    title: "Wolf Food Market",
+    description: "",
+  },
+  {
+    date: "14h - 16h",
+    title: "Quartier libre",
+    description:
+      "On sait que ça va en profiter pour boire mais je préfère laisser le bénéfice du doute",
+  },
+  {
+    date: "16h30",
+    title: "Bubble foot et combat de sumos",
+    description: "",
+  },
+  {
+    date: "20h",
+    title: "Ramen",
+    description: "",
+  },
+  {
+    date: "22h",
+    title: "Tournée des bars",
+    description: "",
+  },
+  {
+    date: "Dimanche 14 mai - Heure inconnue",
+    title: "Réveil",
+    description: "On rend les clés de l'hôtel",
+  },
+  {
+    date: "13h",
+    title: "Brunch à la Casa Louise",
+    description: "",
+  },
+  {
+    date: "Départ",
+    title: "Retour à la vraie casa",
+    description: "Sans brunch et d'attaque pour commencer la journée de lundi",
+  },
+];
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+<Layout title="EVG du Darkmitri">
+  <section>
+    <div class="bg-black text-white py-8">
+      <div
+        class="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24"
+      >
+        <Hero title="EVG du Darkmitri">
+          Organisation de la journée pour savoir ce qu'on va foutre.
+        </Hero>
+        <div class="ml-0 md:ml-12 lg:w-2/3 sticky">
+          <div class="container mx-auto w-full h-full">
+            <Timeline elements={elements} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
