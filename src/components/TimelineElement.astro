@@ -1,11 +1,13 @@
 ---
+import { GeoMap, GeoMapProps } from "./GeoMap";
 export interface Props {
   position: "left" | "right";
   date: string;
   title: string;
+  map?: GeoMapProps;
 }
 
-const { position, date, title } = Astro.props;
+const { position, date, title, map } = Astro.props;
 ---
 
 <div
@@ -24,5 +26,16 @@ const { position, date, title } = Astro.props;
     <p class="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
       <slot />
     </p>
+    {
+      map && (
+        <GeoMap
+          client:only="react"
+          lat={map.lat}
+          lng={map.lng}
+          title={map.title}
+          url={map.url}
+        />
+      )
+    }
   </div>
 </div>

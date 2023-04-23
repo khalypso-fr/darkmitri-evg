@@ -1,9 +1,9 @@
 ---
 import Hero from "../components/Hero.astro";
-import Timeline from "../components/Timeline.astro";
+import Timeline, { TimelineElementProps } from "../components/Timeline.astro";
 import Layout from "../layouts/Layout.astro";
 
-const elements = [
+const elements: TimelineElementProps[] = [
   {
     date: "Vendredi 12 mai - 19h",
     title: "Kidnapping",
@@ -14,6 +14,12 @@ const elements = [
     date: "22h30",
     title: "Arrivée à BXL",
     description: "On mange, on boit, on dort. L'ordre est à définir.",
+    map: {
+      lat: 50.8407865724649,
+      lng: 4.33873325586319,
+      title: "YOOMA Urban Lodge",
+      url: "https://yooma-brussels.com/",
+    },
   },
   {
     date: "Samedi 13 mai - 9h30",
@@ -24,10 +30,25 @@ const elements = [
   {
     date: "11h",
     title: "Escape game",
+    description: "Rendez-vous pour une partie de Quantico chez Get Out",
+    map: {
+      lat: 50.844013,
+      lng: 4.3535593,
+      title: "Get Out - Quantico",
+      url: "https://bruxelles.getout.be/enquetes/quantico/",
+    },
   },
   {
     date: "12h30",
     title: "Wolf Food Market",
+    description:
+      "On va manger dans des halles assez sympa. Chacun y trouvera son bonheur",
+    map: {
+      lat: 50.8499206,
+      lng: 4.3562699,
+      title: "Wolf Food Market",
+      url: "https://www.wolf.brussels/",
+    },
   },
   {
     date: "14h - 16h",
@@ -38,14 +59,29 @@ const elements = [
   {
     date: "16h30",
     title: "Bubble foot et combat de sumos",
+    description: "1 contre 10 donc",
+    map: {
+      lat: 50.7545406,
+      lng: 4.3574921,
+      title: "Footbulle",
+      url: "http://www.footbulle.be/",
+    },
   },
   {
     date: "20h",
-    title: "Ramen",
+    title: "Kokuban - Louise",
+    description: "Resto de ramen pour s'hydrater",
+    map: {
+      lat: 50.7545406,
+      lng: 4.3574921,
+      title: "Kokuban Louise",
+      url: "http://www.kokuban.be/",
+    },
   },
   {
     date: "22h",
     title: "Tournée des bars",
+    description: "Pas besoin d'explication à ce point de l'aventure",
   },
   {
     date: "Dimanche 14 mai - Heure inconnue",
@@ -55,6 +91,13 @@ const elements = [
   {
     date: "13h",
     title: "Brunch à la Casa Louise",
+    description: "Pour digérer et absorber la soirée de la veille",
+    map: {
+      lat: 50.8336739,
+      lng: 4.3587451,
+      title: "Casa Louise",
+      url: "https://www.casalouisebrussels.com/brunch",
+    },
   },
   {
     date: "Départ",

@@ -1,12 +1,16 @@
 ---
+import type { GeoMapProps } from "./GeoMap";
 import TimelineElement from "./TimelineElement.astro";
 
+export type TimelineElementProps = {
+  date: string;
+  title: string;
+  description?: string;
+  map?: GeoMapProps;
+};
+
 export interface Props {
-  elements: Array<{
-    date: string;
-    title: string;
-    description?: string;
-  }>;
+  elements: Array<TimelineElementProps>;
 }
 
 const { elements } = Astro.props;
@@ -32,6 +36,7 @@ const { elements } = Astro.props;
           date={element.date}
           title={element.title}
           position={position}
+          map={element.map}
         >
           {element.description}
         </TimelineElement>
